@@ -29,5 +29,8 @@
 - name: "Install neovim"
   ansible.builtin.import_tasks: neovim.yml
 
+- name: "Install tmux"
+  ansible.builtin.import_tasks: tmux.yml
+
 - name: "Install Visual Studio Code"
   ansible.builtin.import_tasks: visual_studio_code.yml

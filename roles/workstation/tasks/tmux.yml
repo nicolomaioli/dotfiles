@@ -1,0 +1,25 @@
+---
+- name: "Install tmux"
+  become: true
+  ansible.builtin.package:
+    name: tmux
+
+- name: "Clone tpm"
+  ansible.builtin.git:
+    repo: https://github.com/tmux-plugins/tpm.git
+    dest: "{{ ansible_user_dir }}/.tmux/plugins/tpm"
+    version: master
+    update: yes
+
+- name: "Clone tmux configuration"
+  ansible.builtin.git:
+    repo: git@github.com:nicolomaioli/tmux.git
+    dest: "{{ ansible_user_dir }}/.config/tmux"
+    version: main
+    update: yes
+
+- name: "Setup zsh (tmux)"
+  ansible.builtin.lineinfile:
+    name: "{{ ansible_user_dir }}/.zshrc"
+    line: '[ -f "$HOME/.config/tmux/workflow.zsh" ] && source "$HOME/.config/tmux/workflow.zsh"'
+    state: present
