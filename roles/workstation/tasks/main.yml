@@ -2,5 +2,11 @@
 - name: "Install development tools"
   ansible.builtin.import_tasks: devtools.yml
 
-- name: "Configure zsh"
+- name: "Install zsh"
   ansible.builtin.import_tasks: zsh.yml
+
+- name: "Install go"
+  ansible.builtin.import_tasks: go.yml
+
+- name: "Install Visual Studio Code"
+  ansible.builtin.import_tasks: visual_studio_code.yml

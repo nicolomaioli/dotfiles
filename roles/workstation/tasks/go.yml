@@ -1,0 +1,11 @@
+---
+- name: "install go"
+  become: true
+  ansible.builtin.package:
+    name: golang
+
+- name: "go setup zsh"
+  ansible.builtin.lineinfile:
+    name: "{{ ansible_user_dir }}/.zshrc"
+    line: 'export PATH="$HOME/go/bin:$PATH"'
+    state: present
