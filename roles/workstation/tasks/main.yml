@@ -17,5 +17,14 @@
 - name: "Install go"
   ansible.builtin.import_tasks: go.yml
 
+- name: "Install terraform"
+  ansible.builtin.import_tasks: terraform.yml
+
+- name: "Install fzf"
+  ansible.builtin.import_tasks: fzf.yml
+
+- name: "Install neovim"
+  ansible.builtin.import_tasks: neovim.yml
+
 - name: "Install Visual Studio Code"
   ansible.builtin.import_tasks: visual_studio_code.yml

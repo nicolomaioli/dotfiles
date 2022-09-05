@@ -1,0 +1,28 @@
+---
+- name: "Install neovim"
+  become: true
+  ansible.builtin.package:
+    name:
+      - neovim
+      - ripgrep
+
+# For some bizarre reason fedora requires this specific library
+- name: "Install C++ 11 (Fedora)"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - libstdc++-static
+      - gcc-c++
+
+# ansible-lint is not currently available through Mason
+- name: "Install ansible-lint (Fedora)"
+  become: true
+  ansible.builtin.dnf:
+    name: python3-ansible-lint
+
+- name: "Clone neovim configuration"
+  ansible.builtin.git:
+    repo: git@github.com:nicolomaioli/nvim.git
+    dest: "{{ ansible_user_dir }}/.config/nvim"
+    version: main
+    update: yes

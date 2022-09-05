@@ -1,0 +1,16 @@
+---
+- name: "Add Hashicorp Stable repo (Fedora)"
+  become: true
+  ansible.builtin.yum_repository:
+    name: hashicorp-stable
+    description: Hashicorp Stable - $basearch
+    baseurl: https://rpm.releases.hashicorp.com/fedora/$releasever/$basearch/stable
+    gpgcheck: yes
+    gpgkey: https://rpm.releases.hashicorp.com/gpg
+  when: ansible_distribution == 'Fedora'
+
+- name: "Install terraform"
+  become: true
+  ansible.builtin.package:
+    name:
+      - terraform

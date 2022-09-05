@@ -1,0 +1,12 @@
+---
+- name: "Install fzf"
+  become: true
+  ansible.builtin.package:
+    name:
+      - fzf
+
+- name: "Setup zsh (fzf)"
+  ansible.builtin.lineinfile:
+    name: "{{ ansible_user_dir }}/.zshrc"
+    line: '[ -f /usr/share/fzf/shell/key-bindings.zsh ] && source /usr/share/fzf/shell/key-bindings.zsh'
+    state: present
