@@ -37,3 +37,7 @@
 
 - name: "Install Visual Studio Code"
   ansible.builtin.import_tasks: visual_studio_code.yml
+
+- name: "Install i3"
+  ansible.builtin.import_tasks: i3.yml
+  tags: i3

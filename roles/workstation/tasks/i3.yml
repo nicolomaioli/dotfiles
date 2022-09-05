@@ -1,0 +1,30 @@
+---
+- name: "Install i3 and its dependencies"
+  become: true
+  ansible.builtin.package:
+    name:
+      - i3-gaps
+      - polybar
+      - rofi
+      - picom
+      - xss-lock
+      - dex
+      - stow
+
+- name: "Clone i3 configs"
+  ansible.builtin.git:
+    repo: git@github.com:nicolomaioli/i3.git
+    dest: "{{ ansible_user_dir }}/Code/i3"
+    version: main
+    update: yes
+
+- name: "Stow i3 configs"
+  ansible.builtin.command:
+    chdir: "{{ ansible_user_dir }}/Code/i3"
+    cmd: "stow --target={{ ansible_user_dir }} {{ item }}"
+  with_items:
+    - "i3"
+    - "polybar"
+    - "rofi"
+    - "picom"
+  when: true
