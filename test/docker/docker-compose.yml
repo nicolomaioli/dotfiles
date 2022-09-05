@@ -1,8 +1,0 @@
-services:
-  fedora36:
-    build:
-      context: ./fedora36
-      args:
-        - "username=${USERNAME}"
-        - "password=${PASSWORD}"
-    tty: true
