@@ -10,6 +10,7 @@
       - xss-lock
       - dex
       - stow
+      - scrot
 
 - name: "Clone i3 configs"
   ansible.builtin.git:
