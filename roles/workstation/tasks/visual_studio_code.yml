@@ -1,0 +1,16 @@
+---
+- name: "Add Visual Studio Code repo (Fedora)"
+  become: true
+  ansible.builtin.yum_repository:
+    name: microsoft-visual-studio-code
+    description: Microsoft Visual Studio Code
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    gpgcheck: yes
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+  when: ansible_distribution == 'Fedora'
+
+- name: "Install Visual Studio Code"
+  become: true
+  ansible.builtin.package:
+    name:
+      - code

@@ -1,8 +1,9 @@
+---
 - hosts: localhost
   connection: local
 
   pre_tasks:
-    - name: update package cache (Fedora)
+    - name: "Update package cache (Fedora)"
       become: true
       changed_when: false
       ansible.builtin.dnf:
