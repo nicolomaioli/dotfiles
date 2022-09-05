@@ -1,0 +1,40 @@
+---
+- name: "Install alacritty"
+  become: true
+  ansible.builtin.package:
+    name: alacritty
+
+- name: "Create ~/.local/share/fonts"
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.local/share/fonts"
+    state: directory
+    mode: "0755"
+
+- name: "Check installed (Fira Code)"
+  register: firacode
+  check_mode: no
+  ansible.builtin.stat:
+    path: "{{ ansible_user_dir }}/.local/share/fonts/Fira\ Code\ Regular\ Nerd\ Font\ Complete\ Mono.ttf"
+
+- name: "Download FiraCode Nerd Font"
+  when: not firacode.stat.exists
+  ansible.builtin.get_url:
+    url: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
+    dest: /tmp/FiraCode.zip
+
+- name: "Extract FiraCode Nerd Font"
+  when: not firacode.stat.exists
+  ansible.builtin.unarchive:
+    src: /tmp/FiraCode.zip
+    dest: "{{ ansible_user_dir }}/.local/share/fonts"
+
+- name: "Clear and regenerate font cache"
+  ansible.builtin.command: "fc-cache -f -v"
+  when: true
+
+- name: "Clone alacritty configuration"
+  ansible.builtin.git:
+    repo: git@github.com:nicolomaioli/alacritty.git
+    dest: "{{ ansible_user_dir }}/.config/alacritty"
+    version: main
+    update: yes

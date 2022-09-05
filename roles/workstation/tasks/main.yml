@@ -23,6 +23,9 @@
 - name: "Install fzf"
   ansible.builtin.import_tasks: fzf.yml
 
+- name: "Install alacritty"
+  ansible.builtin.import_tasks: alacritty.yml
+
 - name: "Install neovim"
   ansible.builtin.import_tasks: neovim.yml
 
