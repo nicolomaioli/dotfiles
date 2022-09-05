@@ -1,0 +1,6 @@
+---
+- name: "Install development tools"
+  ansible.builtin.import_tasks: devtools.yml
+
+- name: "Configure zsh"
+  ansible.builtin.import_tasks: zsh.yml

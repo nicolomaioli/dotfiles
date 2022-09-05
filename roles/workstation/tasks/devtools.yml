@@ -1,0 +1,12 @@
+---
+- name: "Install dev tools"
+  become: true
+  ansible.builtin.package:
+    name:
+      - bash
+      - curl
+      - fzf
+      - neovim
+      - ripgrep
+      - unzip
+      - wget

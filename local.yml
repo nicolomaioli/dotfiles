@@ -1,0 +1,15 @@
+- hosts: localhost
+  connection: local
+
+  pre_tasks:
+    - name: update package cache (Fedora)
+      become: true
+      changed_when: false
+      ansible.builtin.dnf:
+        update_cache: true
+      when: ansible_distribution == 'Fedora'
+
+- hosts: localhost
+  connection: local
+  roles:
+    - workstation
