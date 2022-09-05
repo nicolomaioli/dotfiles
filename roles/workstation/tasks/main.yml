@@ -32,5 +32,8 @@
 - name: "Install tmux"
   ansible.builtin.import_tasks: tmux.yml
 
+- name: "Install docker"
+  ansible.builtin.import_tasks: docker.yml
+
 - name: "Install Visual Studio Code"
   ansible.builtin.import_tasks: visual_studio_code.yml
