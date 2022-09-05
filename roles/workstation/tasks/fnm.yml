@@ -1,0 +1,26 @@
+---
+- name: "Check installed (fnm)"
+  register: fnm
+  check_mode: no
+  ansible.builtin.stat:
+    path: "{{ ansible_user_dir }}/.fnm/fnm"
+
+- name: "Download fnm"
+  when: not fnm.stat.exists
+  ansible.builtin.get_url:
+    url: https://fnm.vercel.app/install
+    dest: /tmp/fnm-installer.sh
+
+- name: "Install fnm"
+  ansible.builtin.command:
+    cmd: bash /tmp/fnm-installer.sh --skip-shell
+    creates: "{{ ansible_user_dir }}/.fnm/fnm"
+
+- name: "Setup zsh (fnm)"
+  ansible.builtin.lineinfile:
+    name: "{{ ansible_user_dir }}/.zshrc"
+    line: '{{ item }}'
+    state: present
+  with_items:
+    - 'export PATH="$HOME/.fnm:$PATH"'
+    - 'eval "$(fnm env --use-on-cd)"'

@@ -1,0 +1,4 @@
+---
+- name: "Install Node.js LTS"
+  ansible.builtin.command: "fnm install --lts"
+  when: true

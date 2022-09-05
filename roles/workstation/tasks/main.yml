@@ -5,6 +5,15 @@
 - name: "Install zsh"
   ansible.builtin.import_tasks: zsh.yml
 
+- name: "Install fnm"
+  ansible.builtin.import_tasks: fnm.yml
+
+- name: "Install node.js"
+  ansible.builtin.import_tasks: node_js.yml
+
+- name: "Install python3"
+  ansible.builtin.import_tasks: python3.yml
+
 - name: "Install go"
   ansible.builtin.import_tasks: go.yml
 
