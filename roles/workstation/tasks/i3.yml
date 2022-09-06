@@ -7,10 +7,12 @@
       - polybar
       - rofi
       - picom
+      - network-manager-applet
       - xss-lock
       - dex
       - stow
       - scrot
+      - feh
 
 - name: "Clone i3 configs"
   ansible.builtin.git:
@@ -28,4 +30,5 @@
     - "polybar"
     - "rofi"
     - "picom"
+    - "backgrounds"
   when: true
