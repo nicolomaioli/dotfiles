@@ -11,6 +11,6 @@
 
 - name: "Install Visual Studio Code"
   become: true
-  ansible.builtin.package:
+  ansible.builtin.dnf:
     name:
       - code
