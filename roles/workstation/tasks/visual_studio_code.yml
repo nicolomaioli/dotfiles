@@ -9,7 +9,7 @@
     gpgkey: https://packages.microsoft.com/keys/microsoft.asc
   when: ansible_distribution == 'Fedora'
 
-- name: "Install Visual Studio Code"
+- name: "Install Visual Studio Code (Fedora)"
   become: true
   ansible.builtin.dnf:
     name:
