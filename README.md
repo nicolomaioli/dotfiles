@@ -1,6 +1,12 @@
 # Dotfiles
 
-Bootstrap a workstation using Ansible.
+Bootstrap a workstation using Ansible. Individual configurations are stored in
+the following repos:
+
+- [nicolomaioli/nvim](https://github.com/nicolomaioli/nvim)
+- [nicolomaioli/tmux](https://github.com/nicolomaioli/tmux)
+- [nicolomaioli/alacritty](https://github.com/nicolomaioli/alacritty)
+- [nicolomaioli/i3](https://github.com/nicolomaioli/i3)
 
 Prerequisites:
 
