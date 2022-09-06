@@ -1,42 +1,55 @@
 ---
 - name: "Install development tools"
   ansible.builtin.import_tasks: devtools.yml
+  tags: dev
 
 - name: "Install zsh"
   ansible.builtin.import_tasks: zsh.yml
+  tags: dev
 
 - name: "Install fnm"
   ansible.builtin.import_tasks: fnm.yml
+  tags: dev
 
 - name: "Install node.js"
   ansible.builtin.import_tasks: node_js.yml
+  tags: dev
 
 - name: "Install python3"
   ansible.builtin.import_tasks: python3.yml
+  tags: dev
 
 - name: "Install go"
   ansible.builtin.import_tasks: go.yml
+  tags: dev
 
 - name: "Install terraform"
   ansible.builtin.import_tasks: terraform.yml
+  tags: dev
 
 - name: "Install fzf"
   ansible.builtin.import_tasks: fzf.yml
+  tags: dev
 
 - name: "Install alacritty"
   ansible.builtin.import_tasks: alacritty.yml
+  tags: dev
 
 - name: "Install neovim"
   ansible.builtin.import_tasks: neovim.yml
+  tags: dev
 
 - name: "Install tmux"
   ansible.builtin.import_tasks: tmux.yml
+  tags: dev
 
 - name: "Install docker"
   ansible.builtin.import_tasks: docker.yml
+  tags: dev
 
 - name: "Install Visual Studio Code"
   ansible.builtin.import_tasks: visual_studio_code.yml
+  tags: dev
 
 - name: "Install i3"
   ansible.builtin.import_tasks: i3.yml

@@ -12,8 +12,13 @@ Prerequisites:
 Clone repo then run:
 
 ```
-$ ansible-playbook -K local.yaml
+$ ansible-playbook -K local.yaml --tags dev
 ```
+
+Available tags:
+
+- dev
+- i3
 
 # Supported systems
 
