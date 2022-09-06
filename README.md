@@ -1,4 +1,4 @@
-# Dotfiles
+# dotfiles
 
 Bootstrap a workstation using Ansible. Individual configurations are stored in
 the following repos:
