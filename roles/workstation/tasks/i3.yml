@@ -15,8 +15,12 @@
       - feh
 
 - name: "Clone i3 configs"
+  vars:
+    repo:
+      ssh: git@github.com:nicolomaioli/i3.git
+      https: https://github.com/nicolomaioli/i3.git
   ansible.builtin.git:
-    repo: git@github.com:nicolomaioli/i3.git
+    repo: "{{ repo[git['protocol']] }}"
     dest: "{{ ansible_user_dir }}/Code/i3"
     version: main
     update: yes

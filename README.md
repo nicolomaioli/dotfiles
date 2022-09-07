@@ -12,22 +12,29 @@ Prerequisites:
 
 - ansible
 - curl
-- git:
-  - git config --global user.email "alice@example.com"
-  - git config --global user.name "Alice"
-  - ssh-keygen -t ed25519 -C "alice@example.com"
-  - add public key on Github
+- git
 
 Clone this repo then run:
 
-```
-$ ansible-playbook -K local.yaml --tags dev
+```sh
+$ ansible-playbook -K local.yml --tags dev
 ```
 
 Available tags:
 
 - dev
 - i3
+
+## Git Protocol
+
+Note that repos are cloned using ssh by default, so you need to configure git
+and add an ssh key to Github. You can change this behaviour by setting the
+`git.protocol` variable, i.e.:
+
+```sh
+$ ansible-playbook -K local.yml --tags dev --extra-vars '{"git": {"protocol":
+"https"}}'
+```
 
 # Supported systems
 

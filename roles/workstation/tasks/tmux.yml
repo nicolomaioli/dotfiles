@@ -12,8 +12,12 @@
     update: yes
 
 - name: "Clone tmux configuration"
+  vars:
+    repo:
+      ssh: git@github.com:nicolomaioli/tmux.git
+      https: https://github.com/nicolomaioli/tmux.git
   ansible.builtin.git:
-    repo: git@github.com:nicolomaioli/tmux.git
+    repo: "{{ repo[git['protocol']] }}"
     dest: "{{ ansible_user_dir }}/.config/tmux"
     version: main
     update: yes

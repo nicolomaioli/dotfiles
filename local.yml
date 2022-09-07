@@ -1,6 +1,9 @@
 ---
 - hosts: localhost
   connection: local
+  vars:
+    git:
+      protocol: "ssh"
 
   pre_tasks:
     - name: "Update package cache (Fedora)"

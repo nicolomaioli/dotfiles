@@ -33,8 +33,12 @@
   when: true
 
 - name: "Clone alacritty configuration"
+  vars:
+    repo:
+      ssh: git@github.com:nicolomaioli/alacritty.git
+      https: https://github.com/nicolomaioli/alacritty.git
   ansible.builtin.git:
-    repo: git@github.com:nicolomaioli/alacritty.git
+    repo: "{{ repo[git['protocol']] }}"
     dest: "{{ ansible_user_dir }}/.config/alacritty"
     version: main
     update: yes

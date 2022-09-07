@@ -30,8 +30,12 @@
       - luarocks
 
 - name: "Clone neovim configuration"
+  vars:
+    repo:
+      ssh: git@github.com:nicolomaioli/nvim.git
+      https: https://github.com/nicolomaioli/nvim.git
   ansible.builtin.git:
-    repo: git@github.com:nicolomaioli/nvim.git
+    repo: "{{ repo[git['protocol']] }}"
     dest: "{{ ansible_user_dir }}/.config/nvim"
     version: main
     update: yes
