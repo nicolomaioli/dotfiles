@@ -1,0 +1,5 @@
+---
+- name: "Install aws cli"
+  become: true
+  ansible.builtin.package:
+    name: awscli

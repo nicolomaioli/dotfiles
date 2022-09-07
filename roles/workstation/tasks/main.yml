@@ -43,6 +43,10 @@
   ansible.builtin.import_tasks: tmux.yml
   tags: dev
 
+- name: "Install aws cli"
+  ansible.builtin.import_tasks: awscli.yml
+  tags: dev
+
 - name: "Install docker"
   ansible.builtin.import_tasks: docker.yml
   tags: dev
