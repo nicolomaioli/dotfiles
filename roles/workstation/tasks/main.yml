@@ -58,3 +58,7 @@
 - name: "Install i3"
   ansible.builtin.import_tasks: i3.yml
   tags: i3
+
+- name: "Install sway"
+  ansible.builtin.import_tasks: sway.yml
+  tags: sway

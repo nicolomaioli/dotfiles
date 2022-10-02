@@ -24,6 +24,7 @@ Available tags:
 
 - dev
 - i3
+- sway
 
 ## Git Protocol
 

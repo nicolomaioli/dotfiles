@@ -1,0 +1,34 @@
+---
+- name: "Install sway and its dependencies"
+  become: true
+  ansible.builtin.package:
+    name:
+      - sway
+      - waybar
+      - mako
+      - wl-clipboard
+      - pavucontrol
+      - light
+      - blueman
+
+- name: "Clone sway configs"
+  vars:
+    repo:
+      ssh: git@github.com:nicolomaioli/sway.git
+      https: https://github.com/nicolomaioli/sway.git
+  ansible.builtin.git:
+    repo: "{{ repo[git['protocol']] }}"
+    dest: "{{ ansible_user_dir }}/Code/sway"
+    version: main
+    update: yes
+
+- name: "Stow sway configs"
+  ansible.builtin.command:
+    chdir: "{{ ansible_user_dir }}/Code/sway"
+    cmd: "stow --target={{ ansible_user_dir }} {{ item }}"
+  with_items:
+    - "sway"
+    - "waybar"
+    - "wofi"
+    - "backgrounds"
+  when: true
