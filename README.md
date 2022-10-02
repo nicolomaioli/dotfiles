@@ -7,6 +7,7 @@ the following repos:
 - [nicolomaioli/tmux](https://github.com/nicolomaioli/tmux)
 - [nicolomaioli/alacritty](https://github.com/nicolomaioli/alacritty)
 - [nicolomaioli/i3](https://github.com/nicolomaioli/i3)
+- [nicolomaioli/sway](https://github.com/nicolomaioli/sway)
 
 Prerequisites:
 
