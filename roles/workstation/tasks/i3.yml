@@ -8,6 +8,7 @@
       - rofi
       - picom
       - network-manager-applet
+      - blueman
       - xss-lock
       - dex
       - stow
