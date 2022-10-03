@@ -59,6 +59,10 @@
   ansible.builtin.import_tasks: i3.yml
   tags: i3
 
+- name: "Configure X11"
+  ansible.builtin.import_tasks: x11.yml
+  tags: i3
+
 - name: "Install sway"
   ansible.builtin.import_tasks: sway.yml
   tags: sway
