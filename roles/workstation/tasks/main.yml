@@ -51,6 +51,10 @@
   ansible.builtin.import_tasks: docker.yml
   tags: dev
 
+- name: "Install Kubernetes tools"
+  ansible.builtin.import_tasks: kubernetes.yml
+  tags: dev
+
 - name: "Install Visual Studio Code"
   ansible.builtin.import_tasks: visual_studio_code.yml
   tags: dev

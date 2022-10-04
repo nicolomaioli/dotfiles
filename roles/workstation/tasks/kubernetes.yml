@@ -1,0 +1,20 @@
+---
+- name: "Add kubernetes repo (Fedora)"
+  become: true
+  ansible.builtin.yum_repository:
+    name: kubernetes
+    description: Kubernetes
+    baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-$basearch
+    gpgcheck: yes
+    gpgkey: https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+  when: ansible_distribution == 'Fedora'
+
+- name: "Install kubectl (Fedora)"
+  become: true
+  ansible.builtin.dnf:
+    name: kubectl
+
+- name: "Install helm (Fedora)"
+  become: true
+  ansible.builtin.dnf:
+    name: helm
