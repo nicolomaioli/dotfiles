@@ -26,6 +26,13 @@
     version: main
     update: yes
 
+- name: "Remove existing i3 directory"
+  # Else the following stow will only symlink the `config` file inside it,
+  # causing it to appear in the results of `sn` (see tmux conf)
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.config/i3"
+    state: absent
+
 - name: "Stow i3 configs"
   ansible.builtin.command:
     chdir: "{{ ansible_user_dir }}/Code/i3"
