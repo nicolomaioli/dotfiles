@@ -19,8 +19,3 @@
     src: "30-touchpad.conf"
     dest: "/etc/X11/xorg.conf.d/30-touchpad.conf"
     mode: "0644"
-
-- name: "Setup keyboard"
-  when: true
-  ansible.builtin.command:
-    cmd: 'localectl set-x11-keymap "gb,us" "" "" "caps:ctrl_modifier,grp:alt_space_toggle"'
