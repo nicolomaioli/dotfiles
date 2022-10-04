@@ -34,10 +34,25 @@ and add an ssh key to Github. You can change this behaviour by setting the
 `git.protocol` variable, i.e.:
 
 ```sh
-$ ansible-playbook -K local.yml --tags dev --extra-vars '{"git": {"protocol":
-"https"}}'
+$ ansible-playbook -K local.yml --tags dev --extra-vars '{"git": {"protocol":"https"}}'
 ```
 
-# Supported systems
+## Known issues
+
+Some known issues require manual intervention:
+
+- `docker` group becomes the default group for user
+  - Manual fix with `usermod -g <user> <user>`
+- Adding external repositories fails, this affects:
+  - Google Chrome
+  - Terraform
+- Installing `i3-gaps` raises conflict with `i3` in Fedora
+- Unable to run `localectl` as it requires interactive access
+  - This is probably true for all `systemctl` commands
+- Occasional screen tearing of Intel graphics on X11
+  - Although `20-intel.conf` definitely improves things
+- Google Chrome is unable to download files in `sway` (Fedora)
+
+## Supported systems
 
 - Fedora 36
