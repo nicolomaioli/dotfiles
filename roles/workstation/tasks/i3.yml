@@ -41,6 +41,7 @@
     cmd: "stow --target={{ ansible_user_dir }} {{ item }}"
   with_items:
     - "i3"
+    - "i3status"
     - "dunst"
     - "polybar"
     - "rofi"
