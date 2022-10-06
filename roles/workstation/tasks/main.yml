@@ -23,6 +23,10 @@
   ansible.builtin.import_tasks: go.yml
   tags: dev
 
+- name: "Install deno"
+  ansible.builtin.import_tasks: deno.yml
+  tags: dev
+
 - name: "Install terraform"
   ansible.builtin.import_tasks: terraform.yml
   tags: dev

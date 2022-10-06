@@ -1,0 +1,26 @@
+---
+- name: "Check installed (deno)"
+  register: deno
+  check_mode: no
+  ansible.builtin.stat:
+    path: "{{ ansible_user_dir }}/.deno/bin/deno"
+
+- name: "Download deno"
+  when: not deno.stat.exists
+  ansible.builtin.get_url:
+    url: https://deno.land/install.sh
+    dest: /tmp/deno-installer.sh
+
+- name: "Install deno"
+  ansible.builtin.command:
+    cmd: bash /tmp/deno-installer.sh
+    creates: "{{ ansible_user_dir }}/.deno/bin/deno"
+
+- name: "Setup zsh (deno)"
+  ansible.builtin.lineinfile:
+    name: "{{ ansible_user_dir }}/.zshrc"
+    line: "{{ item }}"
+    state: present
+  with_items:
+    - 'export DENO_INSTALL="/home/doomguy/.deno"'
+    - 'export PATH="$DENO_INSTALL/bin:$PATH"'
