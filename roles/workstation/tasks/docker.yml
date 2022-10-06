@@ -28,7 +28,9 @@
   become: true
   ansible.builtin.user:
     name: "{{ ansible_user_id }}"
-    group: docker
+    append: true
+    groups:
+      - "docker"
 
 - name: "Enable docker.service"
   become: true
