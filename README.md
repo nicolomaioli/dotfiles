@@ -41,8 +41,6 @@ $ ansible-playbook -K local.yml --tags dev --extra-vars '{"git": {"protocol":"ht
 
 Some known issues require manual intervention:
 
-- `docker` group becomes the default group for user
-  - Manual fix with `usermod -g <user> <user>`
 - Adding external repositories fails, this affects:
   - Google Chrome
   - Terraform
