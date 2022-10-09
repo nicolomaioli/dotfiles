@@ -18,6 +18,7 @@ Prerequisites:
 Clone this repo then run:
 
 ```sh
+$ ansible-galaxy collection install community.general
 $ ansible-playbook -K local.yml --tags dev
 ```
 
@@ -44,12 +45,11 @@ Some known issues require manual intervention:
 - Adding external repositories fails, this affects:
   - Google Chrome
   - Terraform
-- Installing `i3-gaps` raises conflict with `i3` in Fedora
-- Unable to run `localectl` as it requires interactive access
-  - This is probably true for all `systemctl` commands
-- Occasional screen tearing of Intel graphics on X11
-  - Although `20-intel.conf` definitely improves things
-- Google Chrome is unable to download files in `sway` (Fedora)
+- `i3`:
+  - Installing `i3-gaps` raises conflict with `i3` in Fedora
+- `sway`:
+  - Chrome is unable to download files when installed alongside Gnome
+  - Unable to run `localectl` as it requires interactive access
 
 ## Supported systems
 

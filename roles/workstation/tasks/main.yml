@@ -63,6 +63,10 @@
   ansible.builtin.import_tasks: visual_studio_code.yml
   tags: dev
 
+- name: "Install Slack"
+  ansible.builtin.import_tasks: slack.yml
+  tags: dev
+
 - name: "Install i3"
   ansible.builtin.import_tasks: i3.yml
   tags: i3
