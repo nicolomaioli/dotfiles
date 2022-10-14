@@ -4,6 +4,7 @@
   ansible.builtin.package:
     name:
       - sway
+      - lxpolkit
       - waybar
       - mako
       - wl-clipboard
