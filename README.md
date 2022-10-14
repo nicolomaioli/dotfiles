@@ -38,19 +38,6 @@ and add an ssh key to Github. You can change this behaviour by setting the
 $ ansible-playbook -K local.yml --tags dev --extra-vars '{"git": {"protocol":"https"}}'
 ```
 
-## Known issues
-
-Some known issues require manual intervention:
-
-- Adding external repositories fails, this affects:
-  - Google Chrome
-  - Terraform
-- `i3`:
-  - Installing `i3-gaps` raises conflict with `i3` in Fedora
-- `sway`:
-  - Chrome is unable to download files when installed alongside Gnome
-  - Unable to run `localectl` as it requires interactive access
-
 ## Supported systems
 
 - Fedora 36

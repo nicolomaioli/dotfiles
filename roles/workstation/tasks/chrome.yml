@@ -1,0 +1,6 @@
+---
+- name: "Install Google Chrome (Fedora)"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - google-chrome-stable
