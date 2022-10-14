@@ -1,0 +1,17 @@
+---
+- name: "Create /usr/share/backgrounds/doomguy"
+  become: true
+  ansible.builtin.file:
+    path: "/usr/share/backgrounds/doomguy"
+    state: directory
+    mode: "0755"
+
+- name: "Copy backgrounds"
+  become: true
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "/usr/share/backgrounds/doomguy/{{ item }}"
+    mode: "0644"
+  with_items:
+    - 3829125.jpg
+    - rickroll_4k.png

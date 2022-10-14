@@ -90,3 +90,9 @@
 - name: "Install sway"
   ansible.builtin.import_tasks: sway.yml
   tags: sway
+
+- name: "Copy backgrounds"
+  ansible.builtin.import_tasks: backgrounds.yml
+  tags:
+    - sway
+    - i3
