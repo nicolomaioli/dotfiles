@@ -1,0 +1,10 @@
+---
+- name: "Setup zsh (fnm)"
+  ansible.builtin.lineinfile:
+    name: "/etc/dnf/dnf.conf"
+    line: "{{ item }}"
+    state: present
+  with_items:
+    - "fastestmirror=True"
+    - "max_parallel_downloads=20"
+  when: ansible_distribution == 'Fedora'

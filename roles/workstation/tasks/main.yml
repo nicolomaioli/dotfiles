@@ -1,4 +1,8 @@
 ---
+- name: "Configure package manager"
+  ansible.builtin.import_tasks: package_manager.yml
+  tags: dev
+
 - name: "Install development tools"
   ansible.builtin.import_tasks: devtools.yml
   tags: dev
