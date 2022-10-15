@@ -1,5 +1,5 @@
 ---
-- name: "Setup zsh (fnm)"
+- name: "Setup dnf"
   ansible.builtin.lineinfile:
     name: "/etc/dnf/dnf.conf"
     line: "{{ item }}"
