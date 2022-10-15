@@ -59,6 +59,10 @@
   ansible.builtin.import_tasks: docker.yml
   tags: dev
 
+- name: "Add portainer script"
+  ansible.builtin.import_tasks: portainer.yml
+  tags: dev
+
 - name: "Install Kubernetes tools"
   ansible.builtin.import_tasks: kubernetes.yml
   tags: dev

@@ -1,0 +1,6 @@
+---
+- name: "Copy portainer.sh"
+  ansible.builtin.copy:
+    src: portainer.sh
+    dest: "{{ ansible_user_dir }}/.local/bin/portainer"
+    mode: "0755"
