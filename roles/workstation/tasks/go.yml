@@ -6,6 +6,6 @@
 
 - name: "Setup zsh (go)"
   ansible.builtin.lineinfile:
-    name: "{{ ansible_user_dir }}/.zshrc"
+    name: "{{ ansible_user_dir }}/.zshenv"
     line: 'export PATH="$HOME/go/bin:$PATH"'
     state: present

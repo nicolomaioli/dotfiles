@@ -18,7 +18,7 @@
 
 - name: "Setup zsh (deno)"
   ansible.builtin.lineinfile:
-    name: "{{ ansible_user_dir }}/.zshrc"
+    name: "{{ ansible_user_dir }}/.zshenv"
     line: "{{ item }}"
     state: present
   with_items:

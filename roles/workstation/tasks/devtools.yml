@@ -4,6 +4,7 @@
   ansible.builtin.package:
     name:
       - bash
+      - htop
       - curl
       - unzip
       - wget

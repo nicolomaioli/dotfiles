@@ -42,6 +42,6 @@
 
 - name: "Setup zsh (neovim)"
   ansible.builtin.lineinfile:
-    name: "{{ ansible_user_dir }}/.zshrc"
+    name: "{{ ansible_user_dir }}/.zshenv"
     line: "export EDITOR=nvim"
     state: present

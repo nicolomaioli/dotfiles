@@ -24,6 +24,12 @@
     dest: "{{ ansible_user_dir }}/.zshrc"
     mode: "0644"
 
+- name: "Create .zshenv"
+  ansible.builtin.copy:
+    src: .zshenv
+    dest: "{{ ansible_user_dir }}/.zshenv"
+    mode: "0644"
+
 - name: "Create ~/.local/bin"
   ansible.builtin.file:
     path: "{{ ansible_user_dir }}/.local/bin"

@@ -11,8 +11,8 @@
 
 - name: "Setup zsh (fnm)"
   ansible.builtin.lineinfile:
-    name: "{{ ansible_user_dir }}/.zshrc"
-    line: '{{ item }}'
+    name: "{{ ansible_user_dir }}/.zshenv"
+    line: "{{ item }}"
     state: present
   with_items:
     - 'export PATH="$HOME/.fnm:$PATH"'
