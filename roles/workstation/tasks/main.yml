@@ -15,10 +15,6 @@
   ansible.builtin.import_tasks: fnm.yml
   tags: dev
 
-- name: "Install node.js via fnm"
-  ansible.builtin.import_tasks: node_js.yml
-  tags: dev
-
 - name: "Install python3"
   ansible.builtin.import_tasks: python3.yml
   tags: dev

@@ -17,3 +17,16 @@
   with_items:
     - 'export PATH="$HOME/.fnm:$PATH"'
     - 'eval "$(fnm env --use-on-cd)"'
+
+- name: "Install Node.js LTS (fnm)"
+  ansible.builtin.shell:
+    cmd: |
+      set -o pipefail
+      eval "$(fnm env)"
+      fnm install --lts
+    executable: /bin/bash
+  environment:
+    PATH: "{{ ansible_user_dir }}/.fnm:{{ ansible_env.PATH }}"
+    FNM_DIR: "{{ ansible_user_dir }}/.fnm"
+  register: fnm_results
+  changed_when: "'successfully downloaded' in fnm_results.stdout"
