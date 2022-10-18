@@ -11,8 +11,8 @@
   ansible.builtin.import_tasks: zsh.yml
   tags: dev
 
-- name: "Install fnm"
-  ansible.builtin.import_tasks: fnm.yml
+- name: "Install volta"
+  ansible.builtin.import_tasks: volta.yml
   tags: dev
 
 - name: "Install python3"

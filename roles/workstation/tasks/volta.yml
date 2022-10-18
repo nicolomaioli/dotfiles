@@ -1,0 +1,27 @@
+---
+- name: "Install volta"
+  ansible.builtin.shell:
+    cmd: |
+      set -o pipefail
+      curl https://get.volta.sh | bash -s -- --skip-setup
+    executable: /bin/bash
+  args:
+    creates: "{{ ansible_user_dir }}/.volta/bin/volta"
+
+- name: "Setup zsh (volta)"
+  ansible.builtin.lineinfile:
+    name: "{{ ansible_user_dir }}/.zshenv"
+    line: "{{ item }}"
+    state: present
+  with_items:
+    - 'export VOLTA_HOME="$HOME/.volta"'
+    - 'export PATH="$VOLTA_HOME/bin:$PATH"'
+
+- name: "Install Node.js LTS (volta)"
+  ansible.builtin.command:
+    cmd: "volta install node"
+  environment:
+    VOLTA_HOME: "{{ ansible_user_dir }}/.volta"
+    PATH: "{{ ansible_user_dir }}/.volta/bin:{{ ansible_env.PATH }}"
+  register: volta_results
+  changed_when: "'success: installed and set node' in volta_results.stdout"
