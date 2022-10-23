@@ -5,6 +5,7 @@
     name:
       - neovim
       - ripgrep
+      - tree-sitter-cli
 
 # For some bizarre reason fedora requires this specific library
 - name: "Install C++ 11 (Fedora)"
