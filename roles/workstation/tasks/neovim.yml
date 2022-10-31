@@ -5,6 +5,7 @@
     name:
       - neovim
       - ripgrep
+      - fd-find
       - tree-sitter-cli
 
 # For some bizarre reason fedora requires this specific library
