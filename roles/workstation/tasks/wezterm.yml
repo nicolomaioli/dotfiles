@@ -1,0 +1,19 @@
+---
+- name: "Install wezterm"
+  vars:
+    package: 20220905-102802-7d4b8249/wezterm-20220905_102802_7d4b8249-1.fedora36.x86_64.rpm
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - "https://github.com/wez/wezterm/releases/download/{{ package }}"
+
+- name: "Clone wezterm configuration"
+  vars:
+    repo:
+      ssh: git@github.com:nicolomaioli/wezterm.git
+      https: https://github.com/nicolomaioli/wezterm.git
+  ansible.builtin.git:
+    repo: "{{ repo[git['protocol']] }}"
+    dest: "{{ ansible_user_dir }}/.config/wezterm"
+    version: main
+    update: yes

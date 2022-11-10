@@ -35,8 +35,16 @@
   ansible.builtin.import_tasks: fzf.yml
   tags: dev
 
+- name: "Install fonts"
+  ansible.builtin.import_tasks: fonts.yml
+  tags: dev
+
 - name: "Install alacritty"
   ansible.builtin.import_tasks: alacritty.yml
+  tags: dev
+
+- name: "Install wezterm"
+  ansible.builtin.import_tasks: wezterm.yml
   tags: dev
 
 - name: "Install neovim"
