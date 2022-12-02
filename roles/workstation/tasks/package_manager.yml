@@ -1,5 +1,6 @@
 ---
 - name: "Setup dnf"
+  become: true
   ansible.builtin.lineinfile:
     name: "/etc/dnf/dnf.conf"
     line: "{{ item }}"
