@@ -7,7 +7,7 @@
 
 - name: "Check installed (Fira Code)"
   register: firacode
-  check_mode: no
+  check_mode: false
   ansible.builtin.stat:
     path: "{{ ansible_user_dir }}/.local/share/fonts/Fira\ Code\ Regular\ Nerd\ Font\ Complete\ Mono.ttf"
 
@@ -21,6 +21,24 @@
   when: not firacode.stat.exists
   ansible.builtin.unarchive:
     src: /tmp/FiraCode.zip
+    dest: "{{ ansible_user_dir }}/.local/share/fonts"
+
+- name: "Check installed (Hack)"
+  register: hack
+  check_mode: false
+  ansible.builtin.stat:
+    path: "{{ ansible_user_dir }}/.local/share/fonts/Hack\ Regular\ Nerd\ Font\ Complete\ Mono.ttf"
+
+- name: "Download Hack Nerd Font"
+  when: not hack.stat.exists
+  ansible.builtin.get_url:
+    url: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Hack.zip
+    dest: /tmp/Hack.zip
+
+- name: "Extract Hack Nerd Font"
+  when: not hack.stat.exists
+  ansible.builtin.unarchive:
+    src: /tmp/Hack.zip
     dest: "{{ ansible_user_dir }}/.local/share/fonts"
 
 - name: "Clear and regenerate font cache"

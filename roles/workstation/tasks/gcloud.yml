@@ -1,0 +1,16 @@
+---
+- name: "Add GCP Stable repo (Fedora)"
+  become: true
+  ansible.builtin.yum_repository:
+    name: google-cloud-cli
+    description: Google Cloud CLI - $basearch
+    baseurl: https://packages.cloud.google.com/yum/repos/cloud-sdk-el8-x86_64
+    gpgcheck: true
+    gpgkey: https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+  when: ansible_distribution == 'Fedora'
+
+- name: "Install gcloud (Fedora)"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - google-cloud-cli

@@ -31,6 +31,10 @@
   ansible.builtin.import_tasks: terraform.yml
   tags: dev
 
+- name: "Install Google Cloud CLI"
+  ansible.builtin.import_tasks: gcloud.yml
+  tags: dev
+
 - name: "Install fzf"
   ansible.builtin.import_tasks: fzf.yml
   tags: dev
@@ -45,7 +49,7 @@
 
 - name: "Install wezterm"
   ansible.builtin.import_tasks: wezterm.yml
-  tags: dev
+  tags: never
 
 - name: "Install neovim"
   ansible.builtin.import_tasks: neovim.yml
