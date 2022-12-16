@@ -79,10 +79,6 @@
   ansible.builtin.import_tasks: chrome.yml
   tags: dev
 
-- name: "Install Neovide"
-  ansible.builtin.import_tasks: neovide.yml
-  tags: dev
-
 - name: "Install Visual Studio Code"
   ansible.builtin.import_tasks: visual_studio_code.yml
   tags: dev
